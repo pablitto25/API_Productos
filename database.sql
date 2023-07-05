@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla redsale.categories: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla redsale.categories: ~6 rows (aproximadamente)
 INSERT INTO `categories` (`id`, `title`, `description`, `img`, `createdAt`, `updatedAt`) VALUES
 	(1, 'title', 'description', 'http://redsale.com.ar/img', '2023-06-27 16:39:54', '2023-06-27 16:39:55'),
 	(3, 'Teclado', 'description', 'http://redsale.com.ar/img.jpg', '2023-07-05 15:59:39', '2023-07-05 15:59:39'),
@@ -38,6 +38,20 @@ INSERT INTO `categories` (`id`, `title`, `description`, `img`, `createdAt`, `upd
 	(5, 'Gabinete', 'description', 'http://redsale.com.ar/img.jpg', '2023-07-05 16:02:15', '2023-07-05 16:02:15'),
 	(6, 'Mouse', 'description', 'http://redsale.com.ar/img.jpg', '2023-07-05 16:03:06', '2023-07-05 16:03:06'),
 	(7, 'GamePad', 'description', 'http://redsale.com.ar/img.jpg', '2023-07-05 16:04:03', '2023-07-05 16:04:03');
+
+-- Volcando estructura para tabla redsale.images
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image_url` varchar(300) NOT NULL,
+  `video_url` varchar(300) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `alt` varchar(100) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla redsale.images: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla redsale.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -59,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `categoryId` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla redsale.products: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla redsale.products: ~7 rows (aproximadamente)
 INSERT INTO `products` (`id`, `title`, `slug`, `description`, `color`, `size`, `price`, `old_price`, `discount_rate`, `category_id`, `img`, `createdAt`, `updatedAt`) VALUES
 	(20, 'laptop lenovo', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 16:13:59', '2023-07-03 16:13:59'),
 	(26, 'laptop Sony', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 18:31:31', '2023-07-03 18:31:31'),
