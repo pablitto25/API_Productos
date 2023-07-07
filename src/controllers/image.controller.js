@@ -23,7 +23,7 @@ export const getImg = async(req,res) => {
 export const createImg = async(req,res) => {
     try {
         await ImgModel.create(req.body);
-        res.json({"message" : "File upload Success"});
+        res.json({message : "File upload Success"});
     } catch (error) {
         res.json({message: error.message});
     }
@@ -32,7 +32,7 @@ export const createImg = async(req,res) => {
 export const updateImg = async(req,res) => {
     try {
         await ImgModel.update(req.body, { where: {id: req.params.id}});
-        res.json({"message" : "File updated Success"});
+        res.json({message : "File updated Success"});
     } catch (error) {
         res.json({message: error.message});
     }
@@ -45,9 +45,9 @@ export const deleteImg = async(req,res) => {
         const img = await ImgModel.findAll({ where: {id:req.params.id}});
         const imgName = img[0].media_name;
         fs.unlinkSync('uploads/images/'+ imgName);
-        // eliminar imagen de la tabla lg_media
+        // eliminar imagen de la tabla images
         ImgModel.destroy({where: {id: req.params.id}});
-        res.json({"message" : "File deleted Success "});
+        res.json({message : "File deleted Success "});
     } catch (error) {
         res.json({message: error.message});
     }
