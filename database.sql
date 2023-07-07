@@ -68,20 +68,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   `img` varchar(200) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
+  `isActive` int(11) DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `categoryId` (`category_id`),
   CONSTRAINT `categoryId` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla redsale.products: ~7 rows (aproximadamente)
-INSERT INTO `products` (`id`, `title`, `slug`, `description`, `color`, `size`, `price`, `old_price`, `discount_rate`, `category_id`, `img`, `createdAt`, `updatedAt`) VALUES
-	(20, 'laptop lenovo', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 16:13:59', '2023-07-03 16:13:59'),
-	(26, 'laptop Sony', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 18:31:31', '2023-07-03 18:31:31'),
-	(27, 'laptop exo', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 18:32:04', '2023-07-03 18:32:04'),
-	(28, 'laptop Asus', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-05 13:41:14', '2023-07-05 13:41:14'),
-	(30, 'laptop HP', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-05 15:45:46', '2023-07-05 15:45:46'),
-	(31, 'laptop Apple', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-05 15:46:59', '2023-07-05 15:46:59'),
-	(32, 'laptop Redragon', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-05 16:16:28', '2023-07-05 16:16:28');
+-- Volcando datos para la tabla redsale.products: ~1 rows (aproximadamente)
+INSERT INTO `products` (`id`, `title`, `slug`, `description`, `color`, `size`, `price`, `old_price`, `discount_rate`, `category_id`, `img`, `createdAt`, `updatedAt`, `isActive`) VALUES
+	(20, 'laptop lenovo', 'laptop-lenovo', 'laptops', 'red', 'mx-mx', 1000.000000, 2000.000000, 5, 1, 'https://www.cordobanotebooks.com.ar/wp-content/uploads/2023/05/82SF0009US.jpg', '2023-07-03 16:13:59', '2023-07-03 16:13:59', 1);
 
 -- Volcando estructura para tabla redsale.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -109,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   KEY `roleid` (`roleId`),
   CONSTRAINT `roleid` FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla redsale.users: ~1 rows (aproximadamente)
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `roleId`, `createdAt`, `updatedAt`) VALUES
